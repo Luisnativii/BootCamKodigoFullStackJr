@@ -1,0 +1,187 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Añade esta línea */
+}
+
+header {
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap; /* Añade esta línea */
+    justify-content: space-between;
+}
+
+nav ul li {
+    margin: 0 10px;
+    flex: 1 0 auto; /* Añade esta línea */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.hero-section {
+    background-color: #f0f8ff;
+    text-align: center;
+    padding: 50px 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.hero-section .hero-content,
+.hero-section .hero-image {
+    flex: 1 0 100%;
+}
+
+.hero-section .hero-image img {
+    padding: 4rem;
+    width: 70%;
+    height: auto;
+}
+
+@media (min-width: 768px) {
+    .hero-section .hero-image img {
+        width: 70%;
+    }
+}
+
+.hero-section h1 {
+    color: #333;
+}
+
+.hero-section p {
+    color: #666;
+}
+
+.hero-section form {
+    margin-top: 20px;
+}
+
+.hero-section input[type="email"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.hero-section button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.clients-section {
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.client-logos img {
+    max-width: 100px;
+    margin: 20px;
+}
+
+.projects-section, .certifications-section, .contact-section {
+    padding: 50px 20px;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: #e9ecef;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.card h3 {
+    margin: 15px 0;
+    color: #007bff;
+}
+
+.card p {
+    color: #666;
+}
+
+.card button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.social-icons img {
+    max-width: 30px;
+    margin: 0 10px;
+}
+
+@media (max-width: 768px) {
+    nav ul li {
+        margin: 0 5px;
+    }
+
+    header {
+        padding: 10px 10px;
+    }
+
+    .hero-section {
+        padding: 25px 10px;
+    }
+
+    .hero-section input[type="email"] {
+        margin-right: 5px;
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+
+    .cards-container .card {
+        margin: 0.5%;
+    }
+}
+
+.cards-container .card {
+    box-sizing: border-box;
+    flex: 1 0 calc(33.33% - 2%);
+    margin: 1%;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
