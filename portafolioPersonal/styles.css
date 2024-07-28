@@ -9,7 +9,7 @@ body {
 header {
     background-color: #333;
     padding: 10px 20px;
-    color: white;
+    color: rgb(48, 29, 29);
 }
 
 nav ul {
@@ -32,7 +32,7 @@ nav ul li a {
 }
 
 .hero-section {
-    background-color: #f0f8ff;
+    background-color: #aeceeb;
     text-align: center;
     padding: 50px 20px;
     display: flex;
