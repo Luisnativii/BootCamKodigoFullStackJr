@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aún Te Pienso</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-transform: uppercase;
+            background-color: #FF6600;
+            color: white;
+        }
+
+        .header {
+            background-color: #FF6600;
+            padding: 10px 0;
+            text-align: center;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-around;
+            font-size: 14px;
+        }
+
+        .container {
+            height: 85vh;
+            background-color: #FF6600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .input-container input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            border: 2px solid white;
+            border-radius: 20px;
+            font-size: 18px;
+            color: white;
+            background-color: #FF6600;
+            text-align: center;
+        }
+
+        .input-container input[type="text"]::placeholder {
+            color: white;
+        }
+
+        .input-container button {
+            background: none;
+            color: white;
+            font-size: 18px;
+            padding: 10px 30px;
+            border: 2px solid white;
+            border-radius: 20px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .section {
+            padding: 50px 0;
+            background-color: white;
+            text-align: center;
+            color: #FF6600;
+            font-size: 24px;
+        }
+
+        .section input[type="text"] {
+            width: 60%;
+            padding: 15px;
+            border: 2px solid #FF6600;
+            border-radius: 20px;
+            font-size: 18px;
+            color: #FF6600;
+            outline: none;
+            margin-bottom: 20px;
+        }
+
+        .section input[type="text"]::placeholder {
+            color: #FF6600;
+        }
+
+        .section .enter-button {
+            background: none;
+            color: #FF6600;
+            font-size: 18px;
+            border: 2px solid #FF6600;
+            padding: 15px 30px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .footer {
+            background-color: #FF6600;
+            padding: 20px 0;
+            text-align: center;
+            color: white;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div>MX (16:49)</div>
+    <div>PR (18:49)</div>
+    <div>CL (18:49)</div>
+    <div>VEN (18:49)</div>
+</div>
+
+<div class="container">
+    <div class="input-container">
+        <input type="text" id="inputName" placeholder="¿En quién piensas?" required>
+        <button onclick="alert('Nombre registrado')">Enter</button>
+    </div>
+</div>
+
+<div class="section">
+    <h2>¿Quieres saber si aún te piensan?</h2>
+    <input type="text" id="inputCheck" placeholder="Escribe tu nombre" required>
+    <button class="enter-button" onclick="alert('Tu nombre ha sido registrado')">Enter</button>
+</div>
+
+<div class="footer">
+    <div>NSQK</div>
+    <div>263890 personas aún piensan en alguien</div>
+    <div>ATP</div>
+</div>
+
+</body>
+</html>
