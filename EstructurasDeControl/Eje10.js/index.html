@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promedio de Edades</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 400px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e9ecef;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ingreso de Edades de Estudiantes</h1>
+        
+        <div id="formulario">
+            <h2>Turno Mañana (5 estudiantes)</h2>
+            <label for="edad-m1">Edad estudiante 1:</label>
+            <input type="number" id="edad-m1">
+            <label for="edad-m2">Edad estudiante 2:</label>
+            <input type="number" id="edad-m2">
+            <label for="edad-m3">Edad estudiante 3:</label>
+            <input type="number" id="edad-m3">
+            <label for="edad-m4">Edad estudiante 4:</label>
+            <input type="number" id="edad-m4">
+            <label for="edad-m5">Edad estudiante 5:</label>
+            <input type="number" id="edad-m5">
+
+            <button onclick="pasarAlTurnoTarde()">Siguiente (Turno Tarde)</button>
+        </div>
+
+        <div id="turno-tarde" style="display:none;">
+            <h2>Turno Tarde (6 estudiantes)</h2>
+            <label for="edad-t1">Edad estudiante 1:</label>
+            <input type="number" id="edad-t1">
+            <label for="edad-t2">Edad estudiante 2:</label>
+            <input type="number" id="edad-t2">
+            <label for="edad-t3">Edad estudiante 3:</label>
+            <input type="number" id="edad-t3">
+            <label for="edad-t4">Edad estudiante 4:</label>
+            <input type="number" id="edad-t4">
+            <label for="edad-t5">Edad estudiante 5:</label>
+            <input type="number" id="edad-t5">
+            <label for="edad-t6">Edad estudiante 6:</label>
+            <input type="number" id="edad-t6">
+
+            <button onclick="pasarAlTurnoNoche()">Siguiente (Turno Noche)</button>
+        </div>
+
+        <div id="turno-noche" style="display:none;">
+            <h2>Turno Noche (11 estudiantes)</h2>
+            <label for="edad-n1">Edad estudiante 1:</label>
+            <input type="number" id="edad-n1">
+            <label for="edad-n2">Edad estudiante 2:</label>
+            <input type="number" id="edad-n2">
+            <label for="edad-n3">Edad estudiante 3:</label>
+            <input type="number" id="edad-n3">
+            <label for="edad-n4">Edad estudiante 4:</label>
+            <input type="number" id="edad-n4">
+            <label for="edad-n5">Edad estudiante 5:</label>
+            <input type="number" id="edad-n5">
+            <label for="edad-n6">Edad estudiante 6:</label>
+            <input type="number" id="edad-n6">
+            <label for="edad-n7">Edad estudiante 7:</label>
+            <input type="number" id="edad-n7">
+            <label for="edad-n8">Edad estudiante 8:</label>
+            <input type="number" id="edad-n8">
+            <label for="edad-n9">Edad estudiante 9:</label>
+            <input type="number" id="edad-n9">
+            <label for="edad-n10">Edad estudiante 10:</label>
+            <input type="number" id="edad-n10">
+            <label for="edad-n11">Edad estudiante 11:</label>
+            <input type="number" id="edad-n11">
+
+            <button onclick="calcularPromedios()">Calcular Promedios</button>
+        </div>
+
+        <div id="resultados" class="result"></div>
+    </div>
+
+    <script>
+        // Función para pasar al formulario del turno tarde
+        function pasarAlTurnoTarde() {
+            if (validarTurnoMañana()) {
+                document.getElementById('formulario').style.display = 'none';
+                document.getElementById('turno-tarde').style.display = 'block';
+            }
+        }
+
+        // Función para pasar al formulario del turno noche
+        function pasarAlTurnoNoche() {
+            if (validarTurnoTarde()) {
+                document.getElementById('turno-tarde').style.display = 'none';
+                document.getElementById('turno-noche').style.display = 'block';
+            }
+        }
+
+        // Función para validar la entrada de edades en el turno mañana
+        function validarTurnoMañana() {
+            let edades = [
+                document.getElementById('edad-m1').value,
+                document.getElementById('edad-m2').value,
+                document.getElementById('edad-m3').value,
+                document.getElementById('edad-m4').value,
+                document.getElementById('edad-m5').value
+            ];
+            for (let edad of edades) {
+                if (edad === '') {
+                    alert('Por favor, ingresa todas las edades para el turno mañana.');
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // Función para validar la entrada de edades en el turno tarde
+        function validarTurnoTarde() {
+            let edades = [
+                document.getElementById('edad-t1').value,
+                document.getElementById('edad-t2').value,
+                document.getElementById('edad-t3').value,
+                document.getElementById('edad-t4').value,
+                document.getElementById('edad-t5').value,
+                document.getElementById('edad-t6').value
+            ];
+            for (let edad of edades) {
+                if (edad === '') {
+                    alert('Por favor, ingresa todas las edades para el turno tarde.');
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // Función para validar la entrada de edades en el turno noche
+        function validarTurnoNoche() {
+            let edades = [
+                document.getElementById('edad-n1').value,
+                document.getElementById('edad-n2').value,
+                document.getElementById('edad-n3').value,
+                document.getElementById('edad-n4').value,
+                document.getElementById('edad-n5').value,
+                document.getElementById('edad-n6').value,
+                document.getElementById('edad-n7').value,
+                document.getElementById('edad-n8').value,
+                document.getElementById('edad-n9').value,
+                document.getElementById('edad-n10').value,
+                document.getElementById('edad-n11').value
+            ];
+            for (let edad of edades) {
+                if (edad === '') {
+                    alert('Por favor, ingresa todas las edades para el turno noche.');
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // Función para calcular los promedios de edades y mostrar resultados
+        function calcularPromedios() {
+            if (!validarTurnoNoche()) {
+                return;
+            }
+
+            let edadesManana = [
+                parseFloat(document.getElementById('edad-m1').value),
+                parseFloat(document.getElementById('edad-m2').value),
+                parseFloat(document.getElementById('edad-m3').value),
+                parseFloat(document.getElementById('edad-m4').value),
+                parseFloat(document.getElementById('edad-m5').value)
+            ];
+
+            let edadesTarde = [
+                parseFloat(document.getElementById('edad-t1').value),
+                parseFloat(document.getElementById('edad-t2').value),
+                parseFloat(document.getElementById('edad-t3').value),
+                parseFloat(document.getElementById('edad-t4').value),
+                parseFloat(document.getElementById('edad-t5').value),
+                parseFloat(document.getElementById('edad-t6').value)
+            ];
+
+            let edadesNoche = [
+                parseFloat(document.getElementById('edad-n1').value),
+                parseFloat(document.getElementById('edad-n2').value),
+                parseFloat(document.getElementById('edad-n3').value),
+                parseFloat(document.getElementById('edad-n4').value),
+                parseFloat(document.getElementById('edad-n5').value),
+                parseFloat(document.getElementById('edad-n6').value),
+                parseFloat(document.getElementById('edad-n7').value),
+                parseFloat(document.getElementById('edad-n8').value),
+                parseFloat(document.getElementById('edad-n9').value),
+                parseFloat(document.getElementById('edad-n10').value),
+                parseFloat(document.getElementById('edad-n11').value)
+            ];
+
+            // Función para calcular el promedio
+            function calcularPromedio(edades) {
+                let suma = edades.reduce((acc, edad) => acc + edad, 0);
+                return suma / edades.length;
+            }
+
+            // Calcular promedios
+            let promedioManana = calcularPromedio(edadesManana);
+            let promedioTarde = calcularPromedio(edadesTarde);
+            let promedioNoche = calcularPromedio(edadesNoche);
+
+            // Mostrar resultados
+            let resultado = `
+                <h3>Promedios de Edades:</h3>
+                <p>Promedio Turno Mañana: ${promedioManana.toFixed(2)}</p>
+                <p>Promedio Turno Tarde: ${promedioTarde.toFixed(2)}</p>
+                <p>Promedio Turno Noche: ${promedioNoche.toFixed(2)}</p>
+            `;
+
+            if (promedioManana > promedioTarde && promedioManana > promedioNoche) {
+                resultado += "<p>El turno con mayor promedio es el turno mañana.</p>";
+            } else if (promedioTarde > promedioManana && promedioTarde > promedioNoche) {
+                resultado += "<p>El turno con mayor promedio es el turno tarde.</p>";
+            } else if (promedioNoche > promedioManana && promedioNoche > promedioTarde) {
+                resultado += "<p>El turno con mayor promedio es el turno noche.</p>";
+            } else {
+                resultado += "<p>Hay un empate en los promedios de los turnos.</p>";
+            }
+
+            document.getElementById('resultados').innerHTML = resultado;
+        }
+    </script>
+</body>
+</html>
