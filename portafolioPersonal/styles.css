@@ -3,13 +3,13 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow-x: hidden; /* Añade esta línea */
+    overflow-x: hidden;
 }
 
 header {
     background-color: #333;
     padding: 10px 20px;
-    color: rgb(48, 29, 29);
+    color: white;
 }
 
 nav ul {
@@ -17,18 +17,24 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    flex-wrap: wrap; /* Añade esta línea */
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 nav ul li {
     margin: 0 10px;
-    flex: 1 0 auto; /* Añade esta línea */
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #555;
 }
 
 .hero-section {
@@ -48,12 +54,6 @@ nav ul li a {
     padding: 4rem;
     width: 70%;
     height: auto;
-}
-
-@media (min-width: 768px) {
-    .hero-section .hero-image img {
-        width: 70%;
-    }
 }
 
 .hero-section h1 {
@@ -84,19 +84,27 @@ nav ul li a {
     cursor: pointer;
 }
 
-.clients-section {
+.hero-section button:hover {
+    background-color: #0056b3;
+}
+
+.about-section, .technologies-section, .projects-section, .certifications-section, .contact-section {
+    padding: 50px 20px;
     background-color: #f8f9fa;
+}
+
+.about-section p, .technologies-section ul {
     text-align: center;
-    padding: 50px 20px;
+    color: #333;
 }
 
-.client-logos img {
-    max-width: 100px;
-    margin: 20px;
+.technologies-section ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-.projects-section, .certifications-section, .contact-section {
-    padding: 50px 20px;
+.technologies-section ul li {
+    padding: 10px 0;
 }
 
 .cards-container {
@@ -111,6 +119,7 @@ nav ul li a {
     border-radius: 5px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
 }
 
 .card img {
@@ -136,6 +145,14 @@ nav ul li a {
     cursor: pointer;
 }
 
+.card button:hover {
+    background-color: #0056b3;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
 footer {
     background-color: #333;
     color: white;
@@ -149,39 +166,12 @@ footer {
 }
 
 @media (max-width: 768px) {
-    nav ul li {
-        margin: 0 5px;
-    }
-
-    header {
-        padding: 10px 10px;
-    }
-
     .hero-section {
-        padding: 25px 10px;
-    }
-
-    .hero-section input[type="email"] {
-        margin-right: 5px;
+        flex-direction: column;
+        align-items: center;
     }
 
     .cards-container {
         grid-template-columns: 1fr;
     }
-
-    .cards-container .card {
-        margin: 0.5%;
-    }
-}
-
-.cards-container .card {
-    box-sizing: border-box;
-    flex: 1 0 calc(33.33% - 2%);
-    margin: 1%;
-}
-
-.cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
 }
